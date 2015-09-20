@@ -23,11 +23,13 @@ a {
 
 .write-area {
   position: fixed;
-  bottom: 50px;
+  bottom: 5px;
   width: 100%;
   text-align: center;
+  padding: 50px;
 }
 
 #message {
-    max-width: 50%;
+  width: 100%;
+  max-width: 600px;
 }
