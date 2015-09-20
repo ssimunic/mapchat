@@ -34,7 +34,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 $(document).ready(function(){
 	var lastSend = 0;	
-	$("#send-message").submit(function() {
+	$("#send-message").submit(function(event) {
 		if(pos==null) return false;
 		
 		event.preventDefault();
