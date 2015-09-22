@@ -65,8 +65,10 @@ io.on('connection', function(socket){
   console.log('new user connected');  
 
   socket.on('data', function(data){
+    data.message = data.message.substring(0,200);
+    
     io.emit('data', data);
-    console.log('message:' + data.message);
+    console.log('message:' + data.message.substring);
   });
    
   socket.on('disconnect', function(){

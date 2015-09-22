@@ -44,7 +44,7 @@ $(document).ready(function(){
         if(t - lastSend < 500) return false;
         lastSend = t;
 		
-		var message = $("#message").val();
+		var message = $("#message").val().substring(0, 200);
 		if(message === '') return false;
 		
 		var data = {
