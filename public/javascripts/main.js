@@ -61,9 +61,13 @@ $(document).ready(function(){
 
 socket.on('data', function(data){
 	var infoWindow = new google.maps.InfoWindow({map: map});
+	var position = data.pos;
+	var message = data.message;
 	
-	infoWindow.setPosition(data.pos);
-	infoWindow.setContent(data.message);
+	message = message.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, "<a target='_blank' href='$1'>$1</a>");
+	
+	infoWindow.setPosition(position);
+	infoWindow.setContent(message);
 			
 	setTimeout(function(){
 		infoWindow.close();
