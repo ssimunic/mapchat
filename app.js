@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var sanitizer = require('sanitizer');
 
 var routes = require('./routes/index');
 
@@ -65,10 +66,14 @@ io.on('connection', function(socket){
   console.log('new user connected');  
 
   socket.on('data', function(data){
+    // limit chars
     data.message = data.message.substring(0,200);
     
+    // sanitaze html
+    data.message = sanitizer.escape(data.message);
+        
     io.emit('data', data);
-    console.log('message:' + data.message.substring);
+    console.log('message:' + data.message);
   });
    
   socket.on('disconnect', function(){

@@ -10,4 +10,3 @@ Also check out [idoco's Java version](https://github.com/idoco/map-chat/).
 * Add markers
 * Remove previous infowindow(s) on new message
 * Mute option
-* HTML filter
